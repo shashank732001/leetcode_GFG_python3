@@ -4,7 +4,7 @@
 class Solution:
     def factorial (self, N):
         # code here
-        if  N==1 or N==0:return 1
+        if  N==0:return 1
         return N*self.factorial(N-1)
 
 
