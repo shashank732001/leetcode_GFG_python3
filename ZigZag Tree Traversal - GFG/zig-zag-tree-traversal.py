@@ -12,8 +12,8 @@ class Solution:
     #Function to store the zig zag order traversal of tree in a list.
     def zigZagTraversal(self, root):
         # Your code here
-        s1 = [root]
-        s2 = []
+        s1 = [root]     #array for nodes at odd level
+        s2 = []         #array for nodes at even level
         res = []
         
         if not root:
@@ -23,7 +23,7 @@ class Solution:
             while s1:
                 node = s1.pop()
                 res.append(node.data)
-                if node.left:
+                if node.left:                   # first we are adding left because we pop from last(i,e right nodes first) so observe at even level we want move from right to left 
                     s2.append(node.left)
                     
                 if node.right:
@@ -33,7 +33,7 @@ class Solution:
                 node = s2.pop()
                 res.append(node.data)
                 
-                if node.right:
+                if node.right:               ## first we are adding right because we pop from last(i,e left nodes first) so observe at odd level we want move from left o right
                     s1.append(node.right)
                     
                 if node.left:
