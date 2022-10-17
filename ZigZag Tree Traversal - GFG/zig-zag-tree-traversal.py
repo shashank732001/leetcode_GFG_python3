@@ -14,7 +14,6 @@ class Solution:
         # Your code here
         s1 = [root]
         s2 = []
-        level = []
         res = []
         
         if not root:
@@ -29,10 +28,7 @@ class Solution:
                     
                 if node.right:
                     s2.append(node.right)
-                    
-            # res.append(level)
-            level = []
-            
+
             while s2:
                 node = s2.pop()
                 res.append(node.data)
@@ -42,10 +38,6 @@ class Solution:
                     
                 if node.left:
                     s1.append(node.left)
-            
-            # if level!=[]:
-                # res.append(level)
-                
         return res        
             
             
