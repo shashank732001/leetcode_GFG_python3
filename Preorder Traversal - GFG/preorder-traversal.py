@@ -38,6 +38,7 @@ def preorder(root):
     while q:
         
         root = q.pop()
+        # print(root)
         res.append(root.data)
         
         if root.right:
