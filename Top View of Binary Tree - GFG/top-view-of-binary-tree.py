@@ -34,11 +34,11 @@ class Solution:
             if node.right:
                 q.append((node.right,hd+1))
                 
-        nodemap = OrderedDict(sorted(nodemap.items()))
+        # nodemap = OrderedDict(sorted(nodemap.items()))
         
-        for j in nodemap.values():
+        for j in sorted(nodemap.keys()):
             
-            res.append(j)
+            res.append(nodemap[j])
         return res        
         
 
