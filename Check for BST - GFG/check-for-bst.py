@@ -2,22 +2,28 @@
 
 
 class Solution:
-
-        
+    
     #Function to check whether a Binary Tree is BST or not.
     def isBST(self, root):
+        #code here
         
-        def validate(node,left,right):
+        def checkbst(node,left,right):
             
             if not node:
                 return True
-                
-            if not (node.data>left and node.data<right):
+            
+            if not(node.data>left and node.data<right):
                 return False
                 
-            return validate(node.left,left,node.data) and validate(node.right,node.data,right)
+            return (checkbst(node.left,left,node.data) and checkbst(node.right,node.data,right))
             
-        return validate(root,-10e9,10e9)    
+        return checkbst(root,-10e9,10e9)
+        
+                
+                
+                
+                
+                
 
 
 
