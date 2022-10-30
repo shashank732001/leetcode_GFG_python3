@@ -18,7 +18,7 @@ class Solution:
                 
             for dx,dy in directions:
                 new_x,new_y=x+dx,y+dy
-                if 0<=new_x<rows and 0<=new_y<cols:
+                if new_x in range(rows) and new_y in range(cols):
                     q.append((new_x,new_y,left,steps+1))
                     
         return -1
