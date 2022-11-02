@@ -1,23 +1,33 @@
 class Solution:
     def minMutation(self, start: str, end: str, bank: List[str]) -> int:
         
-        def check(a,b):
-            c=0
-            for x in range(len(a)):
-                if a[x]!=b[x]:
-                    c+=1
-            return c
-        visited=set()
-        l=deque([(start,0)])
-        flag=0
-        while l:
-            t,count=l.popleft()
-            if t==end:
-                return count
-            visited.add(t)
-            for x in bank:
-                #print(check(t,x))
-                if x not in visited and check(t,x)==1:
-                    l.append([x,count+1])
-            #print(l)
-        return -1
+        def diff(string1,string2):
+            diff_count = 0
+            
+            for i in range(len(string1)):
+                if string1[i]!=string2[i]:
+                    diff_count+=1
+            return diff_count
+        
+        
+        q = deque([(start,0)])
+        visited = set()
+        
+        
+        while q:
+            string,change = q.popleft()
+            if string==end:
+                return change
+            
+            visited.add(string)
+            
+            for mut in bank:
+                
+                if (mut not in visited) and diff(mut,string)==1:
+                    
+                    q.append((mut,change+1))
+        return -1            
+                    
+            
+            
+            
