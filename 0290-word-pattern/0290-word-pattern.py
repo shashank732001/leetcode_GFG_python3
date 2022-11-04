@@ -1,6 +1,6 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
-        pattern = [i for i in pattern]
+        # pattern = [i for i in pattern]
         s = s.split()
         lookup1 = {}
         lookup2 = {}
