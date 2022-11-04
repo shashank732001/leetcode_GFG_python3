@@ -25,25 +25,64 @@ class Solution:
         
         
         
-        index_stack = []
-        index_stack.append(-1)
+        # index_stack = []
+        # index_stack.append(-1)
+        # Len = 0
+        
+        # for i in range(len(S)):
+            
+        #     if S[i]=="(":
+        #         index_stack.append(i)
+                
+        #     else:
+
+        #         index_stack.pop()
+        #         if not index_stack:
+        #             index_stack.append(i)
+                    
+        #         else:
+        #             Len = max(Len,i-index_stack[-1])
+        # return Len 
+                    
+                    
+        n = len(S)            
+        opened = 0
+        closed = 0
         Len = 0
         
-        for i in range(len(S)):
-            
+        #substring from the start
+        
+        for i in range(n):
             if S[i]=="(":
-                index_stack.append(i)
-                
+                opened+=1
             else:
+                closed+=1
+            
+            if opened == closed :
+                Len = max(Len,opened+closed)
+            elif closed>opened:
+                opened = 0
+                closed = 0
+                
+        opened = 0
+        closed = 0
 
-                index_stack.pop()
-                if not index_stack:
-                    index_stack.append(i)
-                    
-                else:
-                    Len = max(Len,i-index_stack[-1])
-        return Len 
-                    
+        #substring from the end
+        
+        for i in range(n-1,-1,-1):
+            if S[i]=="(":
+                opened+=1
+            else:
+                closed+=1
+            
+            if opened == closed :
+                Len = max(Len,opened+closed)
+            elif opened>closed:
+                opened = 0
+                closed = 0        
+        
+                
+        return Len         
 
 
 #{ 
