@@ -9,6 +9,7 @@ class Solution:
             
             
             if start==n:
+                # print(out)
                 ans.append(out[:-1])
                 return
             
