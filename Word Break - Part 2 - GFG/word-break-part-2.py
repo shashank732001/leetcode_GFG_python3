@@ -5,24 +5,15 @@ class Solution:
         # code here
         ans=[]
         d = dict
-        m=len(s)
-        flag=[[False for _ in range(m)] for _ in range(m)]
-        for i in range(m):
-            for j in range(m):
-                if(s[i:j+1] in d):
-                    flag[i][j]=True
-        def solve(start,ans,temp,m):
-            if(start>=m):
-                ans.append(' '.join(temp.copy()))
+        
+        def func(i,st):
+            if i==len(s):
+                ans.append(st[:-1])
                 return
-            for i in range(m):
-                if(flag[start][i]==True):
-                    temp.append(''.join(s[start:i+1]))
-                    solve(i+1,ans,temp,m)
-                    temp.pop()
-            return
-        temp=[]
-        solve(0,ans,temp,m)
+            for j in range(i,len(s)+1):
+                if s[i:j] in d:
+                    func(j,st+s[i:j]+' ')
+        func(0,'')
         return ans
 
 
