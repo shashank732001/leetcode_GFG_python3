@@ -22,20 +22,43 @@
 #Function to find intersection point in Y shaped Linked Lists.
 def intersetPoint(head1,head2):
     #code here
-    lookup = set()
-    curr = head1
+    # lookup = set()
+    # curr = head1
     
-    while curr:
-        lookup.add(curr)
-        curr = curr.next
+    # while curr:
+    #     lookup.add(curr)
+    #     curr = curr.next
     
-    curr1 = head2
+    # curr1 = head2
     
-    while curr1:
-        if curr1 in lookup:
+    # while curr1:
+    #     if curr1 in lookup:
+    #         return curr1.data
+    #     curr1 = curr1.next    
+    # return -1
+    
+    if not head1 or not head2:return None
+    curr1 = head1
+    curr2 = head2
+    
+    while curr1 or curr2:
+        if curr1==curr2:
             return curr1.data
-        curr1 = curr1.next    
-    return -1
+    
+        
+        if not curr1:
+            curr1 = head2
+        else:
+            curr1 = curr1.next
+
+        if not curr2:
+            curr2 = head1
+        else:
+            curr2 = curr2.next
+ 
+    return -1        
+            
+            
 
 #{ 
  # Driver Code Starts
