@@ -29,11 +29,10 @@ class Solution:
                         dp[i][j] = dp[i-1][j]
             
             return dp[-1]
-            
-        v = isSubsetSum(n,arr,sum(arr))
-        # ans = [i for i in range(len(v))]
-        # print(v)
-        Sum = sum(arr)
+        
+        Sum = sum(arr)    
+        v = isSubsetSum(n,arr,Sum)
+
         Min = 10e9
         for i in range((len(v)//2)+1):
             if v[i]==True and (Sum-2*i)>=0:
