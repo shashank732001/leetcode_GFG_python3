@@ -35,7 +35,7 @@ def intersetPoint(head1,head2):
         if curr1 in lookup:
             return curr1.data
         curr1 = curr1.next    
-
+    return -1
 
 #{ 
  # Driver Code Starts
