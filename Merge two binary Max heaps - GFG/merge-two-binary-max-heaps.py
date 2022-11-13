@@ -4,19 +4,59 @@ class Solution():
     def mergeHeaps(self, a, b, n, m):
         #your code here
         
-        heap = []
+        # heap = []
        
-        for ele in a :
+        # for ele in a :
             
-            heap.append(ele)
-        for ele in b:
+        #     heap.append(ele)
+        # for ele in b:
             
-            heap.append(ele)
-        # print(heap)
-        heap.sort()
-        heap.reverse()
+        #     heap.append(ele)
+        # # print(heap)
+        # heap.sort()
+        # heap.reverse()
     
-        return heap    
+        # return heap    
+        
+        def MaxHeapify(arr, N, idx):
+     
+        # Find largest of node and
+        # its children
+            if idx >= N:
+                return
+            l = 2 * idx + 1
+            r = 2 * idx + 2
+            Max = 0
+            if l < N and arr[l] > arr[idx]:
+                Max = l
+            else:
+                Max = idx
+            if r < N and arr[r] > arr[Max]:
+                Max = r
+         
+            # Put Maximum value at root and
+            # recur for the child with the
+            # Maximum value
+            if Max != idx:
+                arr[Max], arr[idx] = arr[idx], arr[Max]
+                MaxHeapify(arr, N, Max)
+     
+            # Builds a Max heap of given arr[0..n-1]
+     
+         
+        def buildMaxHeap(arr, N):
+         
+            # building the heap from first non-leaf
+            # node by calling Max heapify function
+            for i in range(int(N / 2) - 1, -1, -1):
+                MaxHeapify(arr, N, i)
+         
+             # Merges Max heaps a[] and b[] into merged[]
+        
+        
+        merged = a+b
+        buildMaxHeap(merged, n+m)
+        return merged
             
 
 
