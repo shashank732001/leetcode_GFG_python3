@@ -10,21 +10,14 @@ class Solution:
             for row,col in cols[c]:
                 if (row,col) not in visited:
                     dfs(rows, cols, row, col, visited)
-
-		
+                    
         rows, cols = {}, {}
         
-		
         for r,c in stones:
-            # if r not in rows:
-            #     rows[r] = []
-            # rows[r].append((r,c))
+
             rows[r] = rows.get(r,[])+[(r,c)]
             cols[c] = cols.get(c,[])+[(r,c)]
-            # if c not in cols:
-            #     cols[c] = []
-            # cols[c].append((r,c))
-        
+
         shared = 0
         visited = set()
 
