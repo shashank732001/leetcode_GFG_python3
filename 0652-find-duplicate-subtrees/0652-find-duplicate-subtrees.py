@@ -19,8 +19,7 @@ class Solution:
             if lookup[s]==2 :
                 ans.append(node)
             return s    
-        if not root:
-            return [[0]]
+
         lookup = {}
         ans = []
         search(root,ans)
