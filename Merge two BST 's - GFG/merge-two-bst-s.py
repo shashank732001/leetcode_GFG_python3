@@ -97,12 +97,31 @@ class Solution:
             
             return
         
+        def build(arr,start,end):
+            if start>end:
+                return
+            
+            mid  = (start+end)//2
+            
+            node = Node(arr[mid])
+            node.left = build(arr,start,mid-1)
+            node.right = build(arr,mid+1,end)
+            
+            return node
+        
         arr1 = []
         arr2 = []
         inorder(root1,arr1)
         inorder(root2,arr2)
+        # arr = arr1+arr2
+        # start = 0
+        # end = len(arr)-1
+        # mergedRoot = build(arr,start,end)
+        # ans  = []
+        # inorder(mergedRoot,ans)
         # print(arr1,arr2)
         return sorted(arr1+arr2)
+        # return ans
             
         
         
