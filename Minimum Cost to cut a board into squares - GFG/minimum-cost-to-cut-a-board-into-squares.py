@@ -15,23 +15,23 @@ class Solution:
         
         while i<m and j<n:
             if X[i]>Y[j]:
-                ans+=X[i]*v_count
-                h_count+=1
+                ans+=X[i]*h_count
+                v_count+=1
                 i+=1
             
             else:
-                ans+=Y[j]*h_count
-                v_count+=1
+                ans+=Y[j]*v_count
+                h_count+=1
                 j+=1
         
         while i<m:
-            ans+=X[i]*v_count
-            h_count+=1
+            ans+=X[i]*h_count
+            v_count+=1
             i+=1
         
         while j<n:
-            ans+=Y[j]*h_count
-            v_count+=1
+            ans+=Y[j]*v_count
+            h_count+=1
             j+=1
         
         return ans    
