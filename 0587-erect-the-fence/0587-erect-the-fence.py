@@ -7,7 +7,18 @@ class Solution:
             x1,y1 = p1
             x2,y2 = p2
             x3,y3 = p3
+            """
+            slope of p1 and p2 will be y2-y1/x2-x1
             
+            slope of p2 and p3 will be y3-y2/x3-x2
+            
+            combining them both gives
+            
+            y3-y2/x3-x2   -   y2-y1/x2-x1 
+            
+            this eqn represents the resultant formed by those two
+            if this is greater than 0 then direction will be counter clockwise else clockwise
+            """
             return (y3-y2)*(x2-x1)-(y2-y1)*(x3-x2) #return <0 if clockwise
         
         
