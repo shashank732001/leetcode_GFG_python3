@@ -25,5 +25,6 @@ class Solution:
                     out.append(0)
             stack.append([t[i],i])  
         # print(out) 
-        return out[::-1]
+        out.reverse()
+        return out
                     
