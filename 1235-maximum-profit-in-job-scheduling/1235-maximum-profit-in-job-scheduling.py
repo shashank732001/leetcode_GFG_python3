@@ -3,14 +3,17 @@ class Solution:
         n = len(startTime)
         jobs = list(zip(startTime,endTime,profit))
         jobs.sort(key=lambda i : i[0])  #sort based on start time
+        dp = [-1]*(n+1)
         
-        
-        @lru_cache(None)
+        # @lru_cache(None)
         
         def helper(i):
             
             if i==n:
                 return 0
+            
+            if dp[i]!=-1:
+                return dp[i]
             
             j = i+1
             
@@ -20,6 +23,7 @@ class Solution:
             one = jobs[i][2]+helper(j)
             two = helper(i+1)
             
-            return max(one,two)
+            dp[i]=max(one,two)
+            return dp[i]
         
         return helper(0)
