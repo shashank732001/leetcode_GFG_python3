@@ -7,22 +7,35 @@
 class Solution:
     def goodNodes(self, root: TreeNode) -> int:
         
-        def preOrder(node,count,Max):
+#         def preOrder(node,count,Max):
             
+#             if not node:
+#                 return
+            
+#             if node.val>=Max:
+#                 count[0]+=1
+#             Max=max(Max,node.val)
+#             preOrder(node.left,count,Max)
+#             preOrder(node.right,count,Max)
+            
+#             return
+        
+#         Max = root.val
+#         count = [0]
+#         preOrder(root,count,Max)
+#         return count[0]
+        
+    
+        def preOrder(node,maxVal):
             if not node:
-                return
+                return 0
             
-            if node.val>=Max:
-                count[0]+=1
-            Max=max(Max,node.val)
-            preOrder(node.left,count,Max)
-            preOrder(node.right,count,Max)
+            res = 1 if node.val>=maxVal else 0
+            maxVal = max(maxVal,node.val)
+            left = preOrder(node.left,maxVal)
+            right = preOrder(node.right,maxVal)
             
-            return
+            return res+left+right
         
-        Max = root.val
-        count = [0]
-        preOrder(root,count,Max)
-        return count[0]
-        
+        return preOrder(root,root.val)
         
