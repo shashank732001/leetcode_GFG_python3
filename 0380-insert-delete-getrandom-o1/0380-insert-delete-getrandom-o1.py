@@ -23,7 +23,8 @@ class RandomizedSet:
         #     random = self.Set.pop()
         #     self.Set.add(random)
         #     return random
-        return random.sample(self.Set, 1)[0]
+        # return random.sample(self.Set, 1)[0]
+        return random.choice(list(self.Set))
         
 
 
