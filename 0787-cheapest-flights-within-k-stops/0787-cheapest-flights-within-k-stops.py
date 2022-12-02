@@ -12,7 +12,7 @@ class Solution:
                 if p + prices[s]< temp[d]:
                     temp[d] = p+prices[s]
             
-            prices = temp[:]
+            prices = temp
         return -1 if prices[dst] == 10e9 else prices[dst]   
                     
         
