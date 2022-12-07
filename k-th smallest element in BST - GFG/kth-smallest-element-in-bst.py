@@ -84,39 +84,39 @@ class Solution:
     def KthSmallestElement(self, root, K): 
         #code here.
         
-        # def inorder(node,k):
-        #     if not node:
-        #         return 
+        def inorder(node):
+            if not node:
+                return 
             
             
-        #     inorder(node.left,k)
-        #     val[0]-=1
-        #     if val[0]==0:
-        #         ans[0]=node.data
+            inorder(node.left)
+            val[0]-=1
+            if val[0]==0:
+                ans[0]=node.data
             
-        #     inorder(node.right,k)
+            inorder(node.right)
             
-        #     return
+            return
         
-        # ans = [-1]
-        # val = [K]
-        # inorder(root,val)
-        # return ans[0]
+        ans = [-1]
+        val = [K]
+        inorder(root)
+        return ans[0]
         
-        n = 0
-        stack = []
-        curr = root
+        # n = 0
+        # stack = []
+        # curr = root
         
-        while curr or stack:
-            while curr:
-                stack.append(curr)
-                curr=curr.left
-            curr = stack.pop() 
-            n+=1
-            if n==K:
-                return curr.data
-            curr=curr.right
-        return -1    
+        # while curr or stack:
+        #     while curr:
+        #         stack.append(curr)
+        #         curr=curr.left
+        #     curr = stack.pop() 
+        #     n+=1
+        #     if n==K:
+        #         return curr.data
+        #     curr=curr.right
+        # return -1    
         
 
 #{ 
