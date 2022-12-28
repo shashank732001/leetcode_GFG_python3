@@ -9,20 +9,31 @@ class Solution:
     #the complete circle without exhausting its petrol in between.
     def tour(self,lis, n):
         #Code here
+        # start = 0
+        # deficit = 0
+        # balance = 0
+        
+        # for i in range(n):
+        #     balance += lis[i][0]-lis[i][1]
+            
+        #     if balance<0:
+        #         deficit+=balance
+        #         start = i+1
+        #         balance = 0
+        # return start if deficit+balance>=0 else -1        
+        
+        if sum(i[0] for i in lis)<sum(i[1] for i in lis):
+            return -1
+        total = 0
         start = 0
-        deficit = 0
-        balance = 0
         
         for i in range(n):
-            balance += lis[i][0]-lis[i][1]
+            total+=lis[i][0]-lis[i][1]
             
-            if balance<0:
-                deficit+=balance
+            if total<0:
+                total = 0
                 start = i+1
-                balance = 0
-        return start if deficit+balance>=0 else -1        
-                
-            
+        return start    
 
 #{ 
  # Driver Code Starts
