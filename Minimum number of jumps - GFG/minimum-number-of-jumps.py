@@ -20,6 +20,21 @@ class Solution:
 	            if i>=far:
 	                return -1
 	            reach = far-i     
+	   
+"""	   TLE
+       l,r = 0,0
+	   jump = 0
+	   
+	   while r<(n-1):
+	       far = 0
+	       for i in range(l,r+1):
+	           far = max(far,i+arr[i])
+	       l = r+1
+	       r = far
+	       jump+=1
+	   
+	   return jump if jump>0 else -1 """   
+	       
 	        
 
 
